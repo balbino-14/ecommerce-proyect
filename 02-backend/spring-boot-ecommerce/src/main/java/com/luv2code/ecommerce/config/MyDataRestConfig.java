@@ -16,17 +16,21 @@ public class MyDataRestConfig implements RepositoryRestConfigurer{
 		
 		HttpMethod[] theUnsuportedMethods = {HttpMethod.PUT, HttpMethod.POST, HttpMethod.DELETE};
 		
-		// Para bloquear el entty de PRODUCT
+		// disable HTTP methods for PRODUCT: PUT, POST and DELETE
+		// Para bloquear el entity de PRODUCT
 		config.getExposureConfiguration()
 			.forDomainType(Product.class)
 			.withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsuportedMethods))
 			.withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsuportedMethods));
 		
-		//Para bloquear el entty de PRODUCT_CATEGORY
+		//Para bloquear el entity de PRODUCT_CATEGORY
 		config.getExposureConfiguration()
 		.forDomainType(ProductCategory.class)
 		.withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsuportedMethods))
 		.withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsuportedMethods));
+		
+		
+		
 		// TODO Auto-generated method stub
 		RepositoryRestConfigurer.super.configureRepositoryRestConfiguration(config);
 	}
