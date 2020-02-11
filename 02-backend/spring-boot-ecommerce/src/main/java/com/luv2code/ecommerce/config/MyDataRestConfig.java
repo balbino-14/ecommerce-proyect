@@ -29,10 +29,6 @@ public class MyDataRestConfig implements RepositoryRestConfigurer{
 		.withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsuportedMethods))
 		.withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsuportedMethods));
 		
-		
-		
-		// TODO Auto-generated method stub
-		RepositoryRestConfigurer.super.configureRepositoryRestConfiguration(config);
 	}
 
 	
